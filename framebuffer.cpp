@@ -64,3 +64,13 @@ void framebuffer::frameclose() {
       munmap(fbp, screensize);
       close(fbfd);
 }
+void framebuffer::render() {
+	long int screensize = vinfo.xres * vinfo.yres * vinfo.bits_per_pixel / 8;
+	memcpy(this->fb_ptr, this->framebuffer_ptr, screensize);
+	usleep(10000);
+}
+
+void framebuffer::clear() {
+	long int screensize = this->vinfo.xres * this->vinfo.yres * this->vinfo.bits_per_pixel / 8;
+	memset(framebuffer_ptr, 0, screensize);
+}

@@ -2,10 +2,4 @@
 A program to explore how bezier curve is implemented in Computer Graphics 
 
 ## Compilation
-	make
-
-## Run
-	./bezier
-
-
-
+	g++ polygon.cpp framebuffer.cpp -o polygon -std=c++11

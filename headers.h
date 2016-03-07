@@ -11,6 +11,9 @@
 #include <vector>
 #include <math.h> 
 #include <iostream>
+#include <termios.h>
+#include <cstring>
+
 
 class framebuffer {
   private:
@@ -21,12 +24,18 @@ class framebuffer {
     int fbfd = 0;
     int x = 0, y = 0;
     long int location = 0;
+    uint8_t* fb_ptr;
+    uint8_t* framebuffer_ptr;
+
   public:
     framebuffer();
     char* getfbp();
     struct fb_var_screeninfo getvinfo();
     struct fb_fix_screeninfo getfinfo();
     void frameclose();
+    void render();
+    void clear();
+
 };
 
 class polygon {
